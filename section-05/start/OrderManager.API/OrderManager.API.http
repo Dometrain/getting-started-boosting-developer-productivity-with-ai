@@ -1,0 +1,46 @@
+@HostAddressRoot = https://localhost:7222
+  
+GET {{HostAddressRoot}}/orders
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders?includeOrderLines=true
+Accept: application/json
+
+### 
+
+GET {{HostAddressRoot}}/orders/1
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders/3/orderlines
+Accept: application/json
+
+###
+
+GET {{HostAddressRoot}}/orders/3/orderlines/3
+Accept: application/json
+
+###
+
+POST {{HostAddressRoot}}/orders
+Accept: application/json
+Content-Type: application/json
+
+{ 
+  "title": "Supplies for testing",
+  "description": "A few supplies for tetsing",
+  "orderDate": "2024-06-20T10:36:35.7378748", 
+  "orderTotal": 3600.00,
+  "orderLines": [
+    {
+      "id": 1,
+      "details": "A few generic laptops",
+      "amount": 3,
+      "price": 1200.00,
+      "productId": 1 
+    }
+   ]
+}
